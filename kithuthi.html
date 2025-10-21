@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Kiruthii ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+            background: #000;
+        }
+        .page {
+            min-height: 100vh;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .page.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .next-btn {
+            position: absolute;
+            bottom: 30px;
+            padding: 15px 40px;
+            font-size: 18px;
+            background: linear-gradient(45deg, #ff6b9d, #c06cff);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 107, 157, 0.8);
+        }
+
+        /* Page 1 - Welcome */
+        #page1 {
+            background: radial-gradient(circle at center, #1a0033, #000);
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .mickey {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .mickey-head {
+            width: 100px;
+            height: 100px;
+            background: #ff6b9d;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 40px rgba(255, 107, 157, 0.8);
+        }
+
+        .mickey-ear {
+            width: 60px;
+            height: 60px;
+            background: #ff6b9d;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 30px rgba(255, 107, 157, 0.6);
+        }
+
+        .mickey-ear.left {
+            top: 0;
+            left: 10px;
+        }
+
+        .mickey-ear.right {
+            top: 0;
+            right: 10px;
+        }
+
+        .welcome-text {
+            font-size: 48px;
+            color: #fff;
+            text-align: center;
+            margin-top: 40px;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.8);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px rgba(255, 107, 157, 0.8); }
+            50% { text-shadow: 0 0 40px rgba(255, 107, 157, 1); }
+        }
+
+        /* Page 2 - Love Quote */
+        #page2 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .quote-container {
+            max-width: 800px;
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+        }
+
+        .quote-text {
+            font-size: 32px;
+            color: #fff;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .heart {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #ff6b9d;
+            transform: rotate(45deg);
+            animation: heartbeat 1.5s infinite;
+            margin: 20px;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 30px;
+            height: 30px;
+            background: #ff6b9d;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart::before {
+            left: -15px;
+        }
+
+        .heart::after {
+            top: -15px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: rotate(45deg) scale(1); }
+            25% { transform: rotate(45deg) scale(1.1); }
+        }
+
+        /* Page 3 - Birthday Greeting */
+        #page3 {
+            background: linear-gradient(135deg, #ffa8d5 0%, #ffcf8d 100%);
+        }
+
+        .birthday-text {
+            font-size: 56px;
+            color: #ff1493;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            border-radius: 50% 50% 45% 45%;
+            animation: rise 6s infinite ease-in;
+        }
+
+        @keyframes rise {
+            0% {
+                bottom: -100px;
+                opacity: 1;
+            }
+            100% {
+                bottom: 100vh;
+                opacity: 0;
+            }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            animation: fall 3s infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -10px;
+                transform: rotate(0deg);
+            }
+            100% {
+                top: 100vh;
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Page 4 - Memories */
+        #page4 {
+            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin-bottom: 100px;
+        }
+        
+        .photo-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-card:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 200px;
+            background: url(./image/20241207_121725.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .photo-caption {
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        .cake-time-text {
+            position: absolute;
+            bottom: 90px;
+            font-size: 32px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            animation: glow 2s infinite;
+        }
+
+        /* Page 5 - Cake Cutting */
+        #page5 {
+            background: radial-gradient(circle, #ff6b9d, #4a0e4e);
+        }
+
+        .cake-container {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cake {
+            width: 200px;
+            height: 250px;
+            position: relative;
+            animation: cakeBounce 2s infinite ease-in-out;
+        }
+
+        @keyframes cakeBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .cake-layer {
+            width: 200px;
+            height: 50px;
+            background: linear-gradient(to right, #ff69b4, #ff1493);
+            border-radius: 10px;
+            position: absolute;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .layer1 { bottom: 0; }
+        .layer2 { bottom: 50px; width: 180px; left: 10px; }
+        .layer3 { bottom: 100px; width: 160px; left: 20px; }
+
+        .candle {
+            width: 10px;
+            height: 40px;
+            background: linear-gradient(to bottom, #fff, #ffeb3b);
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px 5px 0 0;
+        }
+
+        .flame {
+            width: 15px;
+            height: 20px;
+            background: radial-gradient(circle, #ffeb3b, #ff6b6b);
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50% 50% 0 0;
+            animation: flicker 0.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1); }
+            100% { transform: translateX(-50%) scale(1.1); }
+        }
+
+        .flame.blown {
+            display: none;
+        }
+
+        .birthday-message {
+            font-size: 48px;
+            display: none;
+            color: #fff;
+            text-align: center;
+            margin-top: 50px;
+            opacity: 0;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 1);
+            animation: fadeInGlow 2s ease-in;
+        }
+
+        .birthday-message.show {
+            opacity: 1;
+        }
+
+        @keyframes fadeInGlow {
+            from{opacity: 0;transform: scale(0.8);}
+            to { opacity: 1; transform: scale(1);}
+
+        }
+
+        /* Page 6 - Thank You */
+        #page6 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .thank-you-container {
+            max-width: 800px;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .thank-you-text {
+            font-size: 56px;
+            color: #fff;
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.8);
+        }
+
+        .final-quote {
+            font-size: 28px;
+            color: #fff;
+            font-style: italic;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .welcome-text, .birthday-text { font-size: 32px; }
+            .quote-text { font-size: 24px; }
+            .thank-you-text { font-size: 36px; }
+            .final-quote { font-size: 20px; }
+        }
+    </style>
+</head>
+<body style="overflow-y: hidden;">
+    <!-- Page 1: Welcome -->
+    <div class="page active" id="page1">
+        <div class="stars" id="stars"></div>
+        <div class="mickey">
+            <div class="mickey-ear left"></div>
+            <div class="mickey-ear right"></div>
+            <div class="mickey-head"></div>
+        </div>
+        <h1 class="welcome-text">Welcome, My Future 🤍</h1>
+        <button class="next-btn" onclick="nextPage(2)">Next</button>
+    </div>
+
+    <!-- Page 2: Love Quote -->
+    <div class="page" id="page2">
+        <div class="quote-container">
+            <div class="heart"></div>
+            <p class="quote-text">"In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."</p>
+            <p class="quote-text" style="font-size: 24px; margin-top: 20px;">— Unnavan🤍</p>
+            <div class="heart"></div>
+        </div>
+        <button class="next-btn" onclick="nextPage(3)">Next</button>
+    </div>
+
+    <!-- Page 3: Birthday Greeting -->
+    <div class="page" id="page3">
+        <h1 class="birthday-text">🎈 Happy Birthday<br>My Lovable One</h1>
+        <button class="next-btn" onclick="nextPage(4)">Next</button>
+    </div>
+
+    <!-- Page 4: Memories -->
+    <div class="page" id="page4">
+        <div class="gallery">
+            <div class="photo-card">
+                <div class="photo-placeholder"></div>
+                <p class="photo-caption">"Every moment with you is magical"</p>
+            </div>
+            <div class="photo-card">
+                <div class="photo-placeholder"   style="background: url(./image/WhatsApp\ Image\ 2025-10-17\ at\ 12.36.29\ PM\ \(1\).jpeg);
+                                                         background-position: center;
+                                                         background-size: cover;
+                                                         background-repeat: no-repeat;"></div>
+                <p class="photo-caption">"You make my heart smile"</p>
+            </div>
+            <div class="photo-card">
+                <div class="photo-placeholder"   style="background: url(./image/WhatsApp\ Image\ 2025-10-17\ at\ 12.40.51\ PM.jpeg);
+                                                         background-position: center;
+                                                         background-size: cover;
+                                                         background-repeat: no-repeat;"></div>
+                <p class="photo-caption">"Together is my favorite place"</p>
+            </div>
+            <div class="photo-card">
+                <div class="photo-placeholder"    style="background: url(./image/6323181523712460373.jpg);
+                                                         background-position: center;
+                                                         background-size: cover;
+                                                         background-repeat: no-repeat;
+                                                         "></div>
+                <p class="photo-caption">"Forever and always"</p>
+            </div>
+        </div>
+        <p class="cake-time-text">Let's go, it's cake-cutting time 🎂</p>
+        <button class="next-btn" onclick="nextPage(5)">Next</button>
+    </div>
+
+    <!-- Page 5: Cake Cutting -->
+    <div class="page" id="page5">
+        <div class="cake-container" onclick="blowCandles()">
+            <div id="instruct">
+                <span>Pick the Candle light gurl</span>
+            </div>
+            <div class="cake">
+                <div class="cake-layer layer3">
+                    <div class="candle">
+                        <div class="flame" id="flame"></div>
+                    </div>
+                </div>
+                <div class="cake-layer layer2"></div>
+                <div class="cake-layer layer1"></div>
+            </div>
+        </div>
+        <div class="birthday-message" id="birthdayMsg">Happy Birthday Kiruthi ❤️</div>
+        <button class="next-btn" onclick="nextPage(6)" style="display: none;" id="finalNext">Next</button>
+    </div>
+
+    <!-- Page 6: Thank You -->
+    <div class="page" id="page6">
+        <div class="thank-you-container">
+            <h1 class="thank-you-text">Thank You for Being<br>My chellam💕</h1>
+            <p class="final-quote">"You are my today and all of my tomorrows. Every day I spend with you is the new best day of my life."</p>
+        </div>
+    </div>
+
+    <script>
+        // Create stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Create balloons
+        function createBalloons() {
+            const colors = ['#ff6b9d', '#c06cff', '#6bcfff', '#ffeb3b', '#ff6b6b'];
+            for (let i = 0; i < 15; i++) {
+                const balloon = document.createElement('div');
+                balloon.className = 'balloon';
+                balloon.style.left = Math.random() * 100 + '%';
+                balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+                balloon.style.animationDelay = Math.random() * 3 + 's';
+                balloon.style.animationDuration = (5 + Math.random() * 3) + 's';
+                document.getElementById('page3').appendChild(balloon);
+            }
+        }
+
+        // Create confetti
+        function createConfetti() {
+            const colors = ['#ff6b9d', '#c06cff', '#6bcfff', '#ffeb3b', '#ff6b6b'];
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+                document.getElementById('page3').appendChild(confetti);
+            }
+        }
+
+        createBalloons();
+        createConfetti();
+
+        // Page navigation
+        function nextPage(pageNum) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById('page' + pageNum).classList.add('active');
+        }
+
+        // Blow candles
+        let candlesBlown = false;
+        function blowCandles() {
+            if (!candlesBlown) {
+                document.getElementById('flame').classList.add('blown');
+                document.getElementById('birthdayMsg').classList.add('show');
+                setTimeout(() => {
+                    document.getElementById('finalNext').style.display = 'block';
+                    bdaymsg.style.display="block"
+                    inst.style.display="none"
+                    createCakeConfetti();
+                }, 1000);
+                candlesBlown = true;
+            }
+        }
+
+        const bdaymsg = document.getElementById("birthdayMsg")
+        const inst = document.getElementById("instruct")
+        // Create confetti for cake page
+        function createCakeConfetti() {
+            const colors = ['#ff6b9d', '#c06cff', '#6bcfff', '#ffeb3b', '#ff6b6b'];
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+                document.getElementById('page5').appendChild(confetti);
+            }
+        }
+    </script>
+</body>
+</html>

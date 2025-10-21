@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Kiruthii ❤️</title>
+    <title>Happy Birthday Kiruthii ❤</title>
     <style>
         * {
             margin: 0;
@@ -47,6 +46,7 @@
             font-weight: bold;
             box-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
             transition: all 0.3s ease;
+            z-index: 10;
         }
 
         .next-btn:hover {
@@ -144,6 +144,7 @@
 
         .quote-container {
             max-width: 800px;
+            width: 90%;
             text-align: center;
             padding: 40px;
             background: rgba(255, 255, 255, 0.1);
@@ -168,6 +169,7 @@
             transform: rotate(45deg);
             animation: heartbeat 1.5s infinite;
             margin: 20px;
+            position: relative;
         }
 
         .heart::before,
@@ -252,14 +254,20 @@
         /* Page 4 - Memories */
         #page4 {
             background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+            overflow-y: auto;
+            justify-content: flex-start;
+            padding-top: 40px;
+            padding-bottom: 140px;
         }
 
         .gallery {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
             max-width: 1000px;
-            margin-bottom: 100px;
+            width: 90%;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
         
         .photo-card {
@@ -277,10 +285,7 @@
         .photo-placeholder {
             width: 100%;
             height: 200px;
-            background: url(./image/20241207_121725.jpg);
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 10px;
             display: flex;
             justify-content: center;
@@ -298,12 +303,19 @@
         }
 
         .cake-time-text {
-            position: absolute;
+            position: fixed;
             bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
             font-size: 32px;
             color: #fff;
+            text-align: center;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
             animation: glow 2s infinite;
+            padding: 0 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            z-index: 5;
         }
 
         /* Page 5 - Cake Cutting */
@@ -314,6 +326,15 @@
         .cake-container {
             cursor: pointer;
             position: relative;
+            text-align: center;
+        }
+
+        #instruct {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            text-align: center;
         }
 
         .cake {
@@ -321,6 +342,7 @@
             height: 250px;
             position: relative;
             animation: cakeBounce 2s infinite ease-in-out;
+            margin: 0 auto;
         }
 
         @keyframes cakeBounce {
@@ -385,13 +407,13 @@
         }
 
         .birthday-message.show {
+            display: block;
             opacity: 1;
         }
 
         @keyframes fadeInGlow {
             from{opacity: 0;transform: scale(0.8);}
             to { opacity: 1; transform: scale(1);}
-
         }
 
         /* Page 6 - Thank You */
@@ -401,8 +423,9 @@
 
         .thank-you-container {
             max-width: 800px;
+            width: 90%;
             text-align: center;
-            padding: 40px;
+            padding: 40px 20px;
         }
 
         .thank-you-text {
@@ -420,11 +443,244 @@
             opacity: 0.9;
         }
 
+        /* Tablet Styles (768px - 1024px) */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .welcome-text {
+                font-size: 42px;
+            }
+
+            .quote-text {
+                font-size: 28px;
+            }
+
+            .birthday-text {
+                font-size: 48px;
+            }
+
+            .gallery {
+                gap: 20px;
+            }
+
+            .photo-placeholder {
+                height: 180px;
+            }
+
+            .cake-time-text {
+                font-size: 28px;
+            }
+
+            .birthday-message {
+                font-size: 42px;
+            }
+
+            .thank-you-text {
+                font-size: 48px;
+            }
+
+            .final-quote {
+                font-size: 24px;
+            }
+        }
+
+        /* Mobile Styles (up to 768px) */
         @media (max-width: 768px) {
-            .welcome-text, .birthday-text { font-size: 32px; }
-            .quote-text { font-size: 24px; }
-            .thank-you-text { font-size: 36px; }
-            .final-quote { font-size: 20px; }
+            .next-btn {
+                padding: 12px 30px;
+                font-size: 16px;
+                bottom: 20px;
+            }
+
+            .mickey {
+                width: 150px;
+                height: 150px;
+            }
+
+            .mickey-head {
+                width: 80px;
+                height: 80px;
+            }
+
+            .mickey-ear {
+                width: 50px;
+                height: 50px;
+            }
+
+            .welcome-text {
+                font-size: 32px;
+                margin-top: 30px;
+                padding: 0 10px;
+            }
+
+            .quote-container {
+                padding: 30px 20px;
+            }
+
+            .quote-text {
+                font-size: 22px;
+            }
+
+            .quote-text:last-of-type {
+                font-size: 18px !important;
+            }
+
+            .heart {
+                width: 25px;
+                height: 25px;
+                margin: 15px;
+            }
+
+            .heart::before,
+            .heart::after {
+                width: 25px;
+                height: 25px;
+            }
+
+            .heart::before {
+                left: -12.5px;
+            }
+
+            .heart::after {
+                top: -12.5px;
+            }
+
+            .birthday-text {
+                font-size: 36px;
+                padding: 0 20px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-bottom: 20px;
+            }
+
+            .photo-placeholder {
+                height: 250px;
+                font-size: 20px;
+            }
+
+            .photo-caption {
+                font-size: 16px;
+            }
+
+            .cake-time-text {
+                font-size: 24px;
+                bottom: 80px;
+                padding: 10px 15px;
+            }
+
+            #instruct {
+                font-size: 20px;
+                padding: 0 20px;
+            }
+
+            .cake {
+                width: 160px;
+                height: 200px;
+            }
+
+            .cake-layer {
+                width: 160px;
+                height: 40px;
+            }
+
+            .layer2 {
+                width: 140px;
+                left: 10px;
+                bottom: 40px;
+            }
+
+            .layer3 {
+                width: 120px;
+                left: 20px;
+                bottom: 80px;
+            }
+
+            .birthday-message {
+                font-size: 32px;
+                margin-top: 30px;
+                padding: 0 20px;
+            }
+
+            .thank-you-text {
+                font-size: 36px;
+                margin-bottom: 30px;
+            }
+
+            .final-quote {
+                font-size: 20px;
+            }
+
+            .balloon {
+                width: 40px;
+                height: 56px;
+            }
+        }
+
+        /* Small Mobile Styles (up to 480px) */
+        @media (max-width: 480px) {
+            .welcome-text {
+                font-size: 28px;
+            }
+
+            .quote-text {
+                font-size: 20px;
+            }
+
+            .quote-text:last-of-type {
+                font-size: 16px !important;
+            }
+
+            .birthday-text {
+                font-size: 32px;
+            }
+
+            .photo-placeholder {
+                height: 200px;
+            }
+
+            .cake-time-text {
+                font-size: 20px;
+                padding: 8px 12px;
+            }
+
+            #instruct {
+                font-size: 18px;
+            }
+
+            .cake {
+                width: 140px;
+                height: 175px;
+            }
+
+            .cake-layer {
+                width: 140px;
+                height: 35px;
+            }
+
+            .layer2 {
+                width: 120px;
+                left: 10px;
+                bottom: 35px;
+            }
+
+            .layer3 {
+                width: 100px;
+                left: 20px;
+                bottom: 70px;
+            }
+
+            .birthday-message {
+                font-size: 28px;
+            }
+
+            .thank-you-text {
+                font-size: 32px;
+            }
+
+            .final-quote {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
@@ -462,29 +718,19 @@
     <div class="page" id="page4">
         <div class="gallery">
             <div class="photo-card">
-                <div class="photo-placeholder"></div>
+                <div class="photo-placeholder">📸</div>
                 <p class="photo-caption">"Every moment with you is magical"</p>
             </div>
             <div class="photo-card">
-                <div class="photo-placeholder"   style="background: url(./image/WhatsApp\ Image\ 2025-10-17\ at\ 12.36.29\ PM\ \(1\).jpeg);
-                                                         background-position: center;
-                                                         background-size: cover;
-                                                         background-repeat: no-repeat;"></div>
+                <div class="photo-placeholder">💕</div>
                 <p class="photo-caption">"You make my heart smile"</p>
             </div>
             <div class="photo-card">
-                <div class="photo-placeholder"   style="background: url(./image/WhatsApp\ Image\ 2025-10-17\ at\ 12.40.51\ PM.jpeg);
-                                                         background-position: center;
-                                                         background-size: cover;
-                                                         background-repeat: no-repeat;"></div>
+                <div class="photo-placeholder">✨</div>
                 <p class="photo-caption">"Together is my favorite place"</p>
             </div>
             <div class="photo-card">
-                <div class="photo-placeholder"    style="background: url(./image/6323181523712460373.jpg);
-                                                         background-position: center;
-                                                         background-size: cover;
-                                                         background-repeat: no-repeat;
-                                                         "></div>
+                <div class="photo-placeholder">💖</div>
                 <p class="photo-caption">"Forever and always"</p>
             </div>
         </div>
@@ -508,7 +754,7 @@
                 <div class="cake-layer layer1"></div>
             </div>
         </div>
-        <div class="birthday-message" id="birthdayMsg">Happy Birthday Kiruthi ❤️</div>
+        <div class="birthday-message" id="birthdayMsg">Happy Birthday Kiruthi ❤</div>
         <button class="next-btn" onclick="nextPage(6)" style="display: none;" id="finalNext">Next</button>
     </div>
 
@@ -578,16 +824,13 @@
                 document.getElementById('birthdayMsg').classList.add('show');
                 setTimeout(() => {
                     document.getElementById('finalNext').style.display = 'block';
-                    bdaymsg.style.display="block"
-                    inst.style.display="none"
+                    document.getElementById('instruct').style.display = 'none';
                     createCakeConfetti();
                 }, 1000);
                 candlesBlown = true;
             }
         }
 
-        const bdaymsg = document.getElementById("birthdayMsg")
-        const inst = document.getElementById("instruct")
         // Create confetti for cake page
         function createCakeConfetti() {
             const colors = ['#ff6b9d', '#c06cff', '#6bcfff', '#ffeb3b', '#ff6b6b'];
